@@ -283,7 +283,7 @@ public class VanillaChat extends Module {
     private Color getChatColor(String msg, String rank) {
 
         if(msg.startsWith(greenTextPrefix.get()) && greenText.get()) {
-            return new Color(0, 42, 0);
+            return greenTextColor.get();
         }
 
         if(!chatColors.get()) return Color.WHITE;
