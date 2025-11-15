@@ -7,8 +7,11 @@ A meteor addon to change the appearance of 6b6t UI to appear more vanilla-like.
 - Put it in your `.minecraft/mods` folder along with [Meteor](https://meteorclient.me/)
 
 ## Features
-Customizable colors for each unique rank and greentext in chat.
+- Customizable username & chat colors per rank.
+- Customizable username prefix & suffix formatting.
+- Optional 4chan-style greentext with `>`.
 
 | Chat | Tab |
 |------|-----|
-| <img width="300" height="345" alt="image" src="https://github.com/user-attachments/assets/e8344c3c-68ad-4ca0-a38d-6703cfb94b5f" /> | <img width="300" alt="Tab" src="https://github.com/user-attachments/assets/c6f42872-f2b0-4d83-933b-9983fa880ce7" /> <br/>|
+| <img width="300" height="364" alt="image" src="https://github.com/user-attachments/assets/d22d361c-4e17-489b-a559-4c6bc7b60cd7" />| <img width="300" alt="image" src="https://github.com/user-attachments/assets/4a342ada-9bc6-4f59-a5c3-80d14154702c" />
+
