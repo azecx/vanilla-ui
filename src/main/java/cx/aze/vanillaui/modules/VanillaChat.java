@@ -141,7 +141,7 @@ public class VanillaChat extends Module {
 
         String r = rank.toLowerCase();
 
-        if (r.contains("youtube")) return youtubeColor.get();
+        if (r.contains("youtube") || r.contains("yt")) return youtubeColor.get();
         if (r.contains("apex")) return apexColor.get();
         if (r.contains("legend")) return legendColor.get();
         if (r.contains("elite")) return eliteColor.get();
