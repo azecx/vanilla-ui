@@ -70,6 +70,7 @@ public class VanillaChat extends Module {
     public final Setting<SettingColor> greenTextColor = sgGreenText.add(new ColorSetting.Builder()
         .name("green-text-color")
         .description("The color of the greentext.")
+        .visible(greenText::get)
         .defaultValue(new SettingColor(21, 63, 21))
         .build()
     );
@@ -77,6 +78,7 @@ public class VanillaChat extends Module {
     public final Setting<String> greenTextPrefix = sgGreenText.add(new StringSetting.Builder()
         .name("green-text-prefix")
         .description("The prefix of the greentext.")
+        .visible(greenText::get)
         .defaultValue(">")
         .build()
     );
@@ -280,7 +282,7 @@ public class VanillaChat extends Module {
 
     private Color getChatColor(String msg, String rank) {
 
-        if(msg.startsWith(">") && greenText.get()) {
+        if(msg.startsWith(greenTextPrefix.get()) && greenText.get()) {
             return new Color(0, 42, 0);
         }
 
