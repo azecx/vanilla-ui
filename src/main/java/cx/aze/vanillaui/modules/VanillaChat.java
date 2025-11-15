@@ -89,6 +89,21 @@ public class VanillaChat extends Module {
         .build()
     );
 
+    private final Setting<SettingColor> youtubeColor = sgColors.add(new ColorSetting.Builder()
+        .name("youtube-color")
+        .description("Youtube Rank color")
+        .defaultValue(new SettingColor(240, 107, 107))
+        .visible(rankColors::get)
+        .build()
+    );
+
+    public final Setting<SettingColor> ownerColor = sgColors.add(new ColorSetting.Builder()
+        .name("owner-color")
+        .defaultValue(new SettingColor(139, 0, 0))
+        .visible(rankColors::get)
+        .build()
+    );
+
 
     public VanillaChat() {
         super(VanillaUI.CATEGORY, "vanilla-chat", "A module to make the appearance of 6b6t chat look more vanilla.");
@@ -126,10 +141,12 @@ public class VanillaChat extends Module {
 
         String r = rank.toLowerCase();
 
+        if (r.contains("youtube")) return youtubeColor.get();
         if (r.contains("apex")) return apexColor.get();
         if (r.contains("legend")) return legendColor.get();
         if (r.contains("elite")) return eliteColor.get();
         if (r.contains("prime")) return primeColor.get();
+        if (r.contains("owner")) return ownerColor.get();
 
         return defaultColor.get();
     }

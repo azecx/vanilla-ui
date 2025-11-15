@@ -61,6 +61,20 @@ public class VanillaTAB extends Module {
         .build()
     );
 
+    public final Setting<SettingColor> youtubeColor = sgColors.add(new ColorSetting.Builder()
+        .name("youtube-color")
+        .defaultValue(new SettingColor(240, 107, 107))
+        .visible(rankColors::get)
+        .build()
+    );
+
+    public final Setting<SettingColor> ownerColor = sgColors.add(new ColorSetting.Builder()
+        .name("owner-color")
+        .defaultValue(new SettingColor(139, 0, 0))
+        .visible(rankColors::get)
+        .build()
+    );
+
     public VanillaTAB() {
         super(VanillaUI.CATEGORY, "vanilla-tab", "Makes the tablist clean & vanilla-like.");
     }
@@ -68,6 +82,8 @@ public class VanillaTAB extends Module {
     public Text getPlayerName(PlayerListEntry entry) {
         assert entry.getDisplayName() != null;
         String raw = entry.getDisplayName().getString();
+
+        raw = raw.replaceAll("§.", "");
 
         Matcher m = rankRegex.matcher(raw);
 
@@ -87,16 +103,19 @@ public class VanillaTAB extends Module {
         return clean;
     }
 
+
     private int getRankColor(String rank) {
         if (!rankColors.get() || rank == null)
             return defaultColor.get().getPacked();
 
         String r = rank.toLowerCase();
 
+        if (r.contains("yt")) return youtubeColor.get().getPacked();
         if (r.contains("apex")) return apexColor.get().getPacked();
         if (r.contains("legend")) return legendColor.get().getPacked();
         if (r.contains("elite")) return eliteColor.get().getPacked();
         if (r.contains("prime")) return primeColor.get().getPacked();
+        if (r.contains("owner")) return ownerColor.get().getPacked();
 
         return defaultColor.get().getPacked();
     }
