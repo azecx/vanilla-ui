@@ -80,8 +80,13 @@ public class VanillaTAB extends Module {
     }
 
     public Text getPlayerName(PlayerListEntry entry) {
-        assert entry.getDisplayName() != null;
-        String raw = entry.getDisplayName().getString();
+        Text displayName = entry.getDisplayName();
+        if (displayName == null) {
+            return Text.literal(entry.getProfile().getName())
+                .styled(s -> s.withColor(defaultColor.get().getPacked()));
+        }
+
+        String raw = displayName.getString();
 
         raw = raw.replaceAll("§.", "");
 
@@ -102,7 +107,6 @@ public class VanillaTAB extends Module {
 
         return clean;
     }
-
 
     private int getRankColor(String rank) {
         if (!rankColors.get() || rank == null)
