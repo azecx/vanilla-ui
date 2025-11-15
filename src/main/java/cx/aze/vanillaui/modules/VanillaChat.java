@@ -20,6 +20,8 @@ public class VanillaChat extends Module {
     private final SettingGroup sgText = this.settings.createGroup("Username");
     private final SettingGroup sgUsernameColors = this.settings.createGroup("Username Colors");
     private final SettingGroup sgChatColors = this.settings.createGroup("Chat Colors");
+    private final SettingGroup sgGreenText = this.settings.createGroup("Green Text");
+
 
     public enum colorMode {
         Username,
@@ -57,11 +59,25 @@ public class VanillaChat extends Module {
         .build()
     );
 
-    // ========== Toggles ==========
-    public final Setting<Boolean> greenText = sgChatColors.add(new BoolSetting.Builder()
+    // greentext
+    public final Setting<Boolean> greenText = sgGreenText.add(new BoolSetting.Builder()
         .name("green-text")
         .description("Enable 4chan-style >greentext.")
         .defaultValue(true)
+        .build()
+    );
+
+    public final Setting<SettingColor> greenTextColor = sgGreenText.add(new ColorSetting.Builder()
+        .name("green-text-color")
+        .description("The color of the greentext.")
+        .defaultValue(new SettingColor(0, 42, 0))
+        .build()
+    );
+
+    public final Setting<String> greenTextPrefix = sgGreenText.add(new StringSetting.Builder()
+        .name("green-text-prefix")
+        .description("The prefix of the greentext.")
+        .defaultValue(">")
         .build()
     );
 
@@ -234,7 +250,7 @@ public class VanillaChat extends Module {
     private Color getContextColor(String msg ,String rank) {
         switch(textColorMode.get()) {
             case colorMode.Chat -> {
-                return getChatColor(msg, rank);
+                return getChatColor(msg.replaceAll(greenTextPrefix.get(), ""), rank);
             }
             case colorMode.Username -> {
                 return getRankColor(rank);
@@ -265,7 +281,7 @@ public class VanillaChat extends Module {
     private Color getChatColor(String msg, String rank) {
 
         if(msg.startsWith(">") && greenText.get()) {
-            return Color.GREEN;
+            return new Color(0, 42, 0);
         }
 
         if(!chatColors.get()) return Color.WHITE;
