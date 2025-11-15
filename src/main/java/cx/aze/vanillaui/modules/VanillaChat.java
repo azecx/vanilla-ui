@@ -70,7 +70,7 @@ public class VanillaChat extends Module {
     public final Setting<SettingColor> greenTextColor = sgGreenText.add(new ColorSetting.Builder()
         .name("green-text-color")
         .description("The color of the greentext.")
-        .defaultValue(new SettingColor(0, 42, 0))
+        .defaultValue(new SettingColor(21, 63, 21))
         .build()
     );
 
