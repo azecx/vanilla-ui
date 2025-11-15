@@ -28,7 +28,7 @@ public class VanillaTAB extends Module {
 
     public final Setting<SettingColor> defaultColor = sgColors.add(new ColorSetting.Builder()
         .name("default-color")
-        .defaultValue(new SettingColor(255, 255, 255))
+        .defaultValue(new SettingColor(170, 170, 170))
         .visible(rankColors::get)
         .build()
     );
