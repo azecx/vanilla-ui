@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "cx.aze.vanillaui.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "PlayerListHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

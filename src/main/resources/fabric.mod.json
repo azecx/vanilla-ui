@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "vanilla-ui",
+  "version": "${version}",
+  "name": "Vanilla UI",
+  "description": "An addon to change the appearance of 6b6t UI to look more vanilla.",
+  "authors": [
+    "aze"
+  ],
+  "icon": "assets/template/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "cx.aze.vanillaui.VanillaUI"
+    ]
+  },
+  "mixins": [
+    "vanilla-ui.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "255,255,255"
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  }
+}
