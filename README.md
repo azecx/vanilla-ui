@@ -9,7 +9,7 @@ A meteor addon to change the appearance of 6b6t UI to appear more vanilla-like.
 ## Features
 - Customizable username & chat colors per rank.
 - Customizable username prefix & suffix formatting.
-- Optional 4chan-style greentext with `>`.
+- Customizable 4chan-style "green"-text.
 
 | Chat | Tab |
 |------|-----|
