@@ -71,7 +71,7 @@ public class VanillaChat extends Module {
         .name("green-text-color")
         .description("The color of the greentext.")
         .visible(greenText::get)
-        .defaultValue(new SettingColor(21, 63, 21))
+        .defaultValue(new SettingColor(85, 255, 85))
         .build()
     );
 
