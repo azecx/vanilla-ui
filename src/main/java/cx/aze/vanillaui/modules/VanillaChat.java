@@ -15,7 +15,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class VanillaChat extends Module {
-    private final SettingGroup sgDefault = this.settings.getDefaultGroup();
     private final SettingGroup sgColors = this.settings.createGroup("Colors");
     private final SettingGroup sgText = this.settings.createGroup("Username");
 
@@ -36,14 +35,14 @@ public class VanillaChat extends Module {
         .build()
     );
 
-    public final Setting<Boolean> greenText = sgDefault.add(new BoolSetting.Builder()
+    public final Setting<Boolean> greenText = sgColors.add(new BoolSetting.Builder()
         .name("green-text")
         .description("Iconic > greentext from 4chan.")
         .defaultValue(true)
         .build()
     );
 
-    public final Setting<Boolean> rankColors = sgDefault.add(new BoolSetting.Builder()
+    public final Setting<Boolean> rankColors = sgColors.add(new BoolSetting.Builder()
         .name("rank-colors")
         .description("Display customizable rank colors.")
         .defaultValue(true)
